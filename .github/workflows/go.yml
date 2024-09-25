@@ -9,17 +9,22 @@ on:
 jobs:
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         go_version: ['1.18', '1.17', '>=1.18']
+        os: [ubuntu-latest, 'ubuntu-22.04']
     steps:
-    - uses: actions/checkout@v3
-
+    - uses: actions/checkout@v4
     - name: Set up Go
-      uses: actions/setup-go@v3
+      uses: actions/setup-go@v5
       with:
         go-version: ${{ matrix.go_version }}
+
+    - name: Install Docker Compose
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y docker-compose
       
     - name: Build-DB
       run: docker-compose build
@@ -36,8 +41,8 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: ['ubuntu-latest', 'ubuntu-18.04']
+        os: [ubuntu-latest, 'ubuntu-22.04']
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Build
       run: go build -v main.go
