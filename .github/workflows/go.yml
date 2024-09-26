@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       HOST: ${{ secrets.DB_HOST }}
-      PORT: 5432
+      PORT: ${{ secrets.DB_PORT }}
       USER: ${{ secrets.DB_USER }}
       PASSWORD: ${{ secrets.DB_PASSWORD }}
       DBNAME: ${{ secrets.DB_NAME }}      
