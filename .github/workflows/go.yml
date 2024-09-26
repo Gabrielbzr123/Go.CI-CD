@@ -9,11 +9,11 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
     env:
-      HOST: ${{ secrets.DB_HOST }}
+      DB_HOST: ${{ secrets.DB_HOST }}
       PORT: 5432
-      USER: ${{ secrets.DB_USER }}
-      PASSWORD: ${{ secrets.DB_PASSWORD }}
-      DBNAME: ${{ secrets.DB_NAME }}      
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_NAME: ${{ secrets.DB_NAME }}      
     strategy:
       matrix:
         go_version: ['1.18', '1.17', '>=1.18']
@@ -44,11 +44,11 @@ jobs:
     needs: test
     runs-on: ${{ matrix.os }}
     env:
-      HOST: ${{ secrets.DB_HOST }}
+      DB_HOST: ${{ secrets.DB_HOST }}
       PORT: 5432
-      USER: ${{ secrets.DB_USER }}
-      PASSWORD: ${{ secrets.DB_PASSWORD }}
-      DBNAME: ${{ secrets.DB_NAME }} 
+      DB_USER: ${{ secrets.DB_USER }}
+      DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DB_NAME: ${{ secrets.DB_NAME }} 
     strategy:
       matrix:
         os: [ubuntu-latest, 'ubuntu-22.04']
