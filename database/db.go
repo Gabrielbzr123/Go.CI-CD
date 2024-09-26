@@ -18,13 +18,12 @@ func ConectaComBancoDeDados() {
 	usuario := os.Getenv("DB_USER")
 	senha := os.Getenv("DB_PASSWORD")
 	nomeBanco := os.Getenv("DB_NAME")
-	portaBanco := os.Getenv("DB_PORT")
+	portaBanco := "5432"
 
 	log.Println("DB_HOST:", endereco)
     log.Println("DB_USER:", usuario)
     log.Println("DB_PASSWORD:", senha)
     log.Println("DB_NAME:", nomeBanco)
-    log.Println("DB_PORT:", portaBanco)
 
 	stringDeConexao := "host=" + endereco + " user=" + usuario + " password=" + senha + " dbname=" + nomeBanco + " port="+ portaBanco + " sslmode=disable"
 	DB, err = gorm.Open(postgres.Open(stringDeConexao))
