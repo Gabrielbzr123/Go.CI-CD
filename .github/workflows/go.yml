@@ -36,6 +36,9 @@ jobs:
     - name: Create-DB
       run: docker-compose up -d
 
+   - name: Wait for DB
+      run: sleep 10
+
     - name: Test
       run: go test -v main_test.go 
       
@@ -45,7 +48,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     env:
       DB_HOST: ${{ secrets.DB_HOST }}
-      PORT: 5432
+      DB_PORT: 5432
       DB_USER: ${{ secrets.DB_USER }}
       DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
       DB_NAME: ${{ secrets.DB_NAME }} 
