@@ -36,14 +36,13 @@ jobs:
     - name: Create-DB
       run: docker-compose up -d
 
-   - name: Wait for DB
+    - name: Wait for DB
       run: sleep 10
 
     - name: Test
       run: go test -v main_test.go 
       
-  
-  build:
+    build:
     needs: test
     runs-on: ${{ matrix.os }}
     env:
