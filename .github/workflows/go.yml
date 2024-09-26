@@ -1,8 +1,6 @@
 name: Go
 
 on:
-  push:
-    branches: [ '*' ]
   pull_request:
     branches: [ '*' ]
 
@@ -10,6 +8,12 @@ jobs:
 
   test:
     runs-on: ${{ matrix.os }}
+    env:
+      HOST: ${{ secrets.DB_HOST }}
+      PORT: ${{ secrets.DB_PORT }}
+      USER: ${{ secrets.DB_USER }}
+      PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DBNAME: ${{ secrets.DB_NAME }}      
     strategy:
       matrix:
         go_version: ['1.18', '1.17', '>=1.18']
@@ -39,6 +43,12 @@ jobs:
   build:
     needs: test
     runs-on: ${{ matrix.os }}
+    env:
+      HOST: ${{ secrets.DB_HOST }}
+      PORT: ${{ secrets.DB_PORT }}
+      USER: ${{ secrets.DB_USER }}
+      PASSWORD: ${{ secrets.DB_PASSWORD }}
+      DBNAME: ${{ secrets.DB_NAME }} 
     strategy:
       matrix:
         os: [ubuntu-latest, 'ubuntu-22.04']
