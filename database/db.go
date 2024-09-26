@@ -18,7 +18,7 @@ func ConectaComBancoDeDados() {
 	usuario := os.Getenv("DB_USER")
 	senha := os.Getenv("DB_PASSWORD")
 	nomeBanco := os.Getenv("DB_NAME")
-	portaBanco := 5432
+	portaBanco := "5432"
 
 	log.Println("DB_HOST:", endereco)
     log.Println("DB_USER:", usuario)
