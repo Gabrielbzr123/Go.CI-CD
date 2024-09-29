@@ -1,6 +1,8 @@
 name: Go
 
 on:
+  push:
+    branches: ['*']
   pull_request:
     branches: [ '*' ]
 
@@ -62,4 +64,5 @@ jobs:
   docker:
     needs: build
     uses: ./.github/workflows/docker.yml
+    secrets: inherit
     
