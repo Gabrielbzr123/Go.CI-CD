@@ -17,6 +17,7 @@ jobs:
       uses: actions/download-artifact@v4.1.8
       with:
         name: api-go
+        path: main
 
     - name: Docker Login
       uses: docker/login-action@v3.0.0
