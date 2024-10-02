@@ -10,9 +10,9 @@ import (
 	"testing"
 
 	"github.com/gin-gonic/gin"
-	"github.com/guilhermeonrails/api-go-gin/controllers"
-	"github.com/guilhermeonrails/api-go-gin/database"
-	"github.com/guilhermeonrails/api-go-gin/models"
+	"github.com/alura-cursos/Curso_CI/controllers"
+	"github.com/alura-cursos/Curso_CI/database"
+	"github.com/alura-cursos/Curso_CI/models"
 	"github.com/stretchr/testify/assert"
 )
 

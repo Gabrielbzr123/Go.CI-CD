@@ -1,4 +1,4 @@
-module github.com/guilhermeonrails/api-go-gin
+module github.com/alura-cursos/Curso_CI
 
 go 1.15
 
